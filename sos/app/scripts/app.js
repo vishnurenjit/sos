@@ -32,7 +32,7 @@ angular
         controller: 'AboutCtrl'
       })
       .otherwise({
-        redirectTo: '/home'
+        redirectTo: '/login'
       });
   })
   .run(function ($rootScope, $location) {

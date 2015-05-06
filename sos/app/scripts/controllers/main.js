@@ -14,11 +14,6 @@ angular.module('sos00App')
         // $rootScope.user = null;
         // $rootScope.isLoggedIn = false;
         alert("logOut");
-
+        $location.path("/login");
     };
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
   });
