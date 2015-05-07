@@ -14,25 +14,23 @@ angular.module('sos00App')
         password: null
     };
   	$scope.loginError = false;
-  	$scope.errorMessage = "";
+  	$scope.errorMessage = '';
 
 
   	$scope.login = function(user) {
-  		$scope.errorMessage = "";
-  		console.log(user.username + " - " + user.password);
+  		$scope.errorMessage = '';
+  		console.log(user.username + ' - ' + user.password);
   		Parse.User.logIn(('' + user.username).toLowerCase(), user.password, {
             success: function(user) {
             	$rootScope.$apply(function() {
-			        $location.path("/home");
+			        $location.path('/home');
 			        console.log($location.path());
 			      });
             },
             error: function(user, err) {
-            	//alert();
             	$scope.errorMessage = err.message;
             	$scope.loginError = true;
             }
         });
-  	}
-
+  	};
   });

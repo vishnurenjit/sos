@@ -1,3 +1,8 @@
+<!-- Styles loaded for uploading picture -->
+<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/select2/3.4.8/select2-bootstrap.css" />
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/jasny-bootstrap/3.1.3/css/jasny-bootstrap.min.css" />
+<!-- Styles end -->
+
 <div class="header">
   <ul class="nav nav-pills pull-right">
     <li class="active"><a ng-href="#">Home</a></li>
@@ -5,29 +10,41 @@
     <li><a ng-href="#" ng-click="logout()">Logout</a></li>
   </ul>
 </div>
-<div class="row">
-  <div class="col-md-4">
-    <button class="btn btn-default" type="submit">Add user</button>
-    <button class="btn btn-default" type="submit">Upload user list</button>
-  </div>
-  <div class="col-md-3">
+
+<div class="container" ng-controller="MainCtrl">
+  <div class="row">
     <div class="col-md-4">
-      <strong>Sort By :</strong>
-    </div>  
-    <div class="col-md-6">
-      <select class="form-control">
-        <option>User</option>
-        <option>Organization</option>
-        <option>Created on</option>
-        <option>Updated on</option>
-      </select>
+      <button class="btn btn-default" type="submit">Add user</button>
+      <button class="btn btn-default" type="submit">Upload user list</button>
     </div>
-  </div>
-  <div class="col-md-3">
     <div class="col-md-3">
-      <strong>Filter : </strong>
-    </div>  
-    <div class="col-md-9">
+      <div class="col-md-4">
+        <strong>Sort By :</strong>
+      </div>  
+      <div class="col-md-6">
+        <select class="form-control">
+          <option>User</option>
+          <option>Organization</option>
+          <option>Created on</option>
+          <option>Updated on</option>
+        </select>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="col-md-3">
+        <strong>Filter : </strong>
+      </div>  
+      <div class="col-md-9">
+        <select class="form-control">
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+          <option>5</option>
+        </select>
+      </div>
+    </div>
+    <div class="col-md-2">
       <select class="form-control">
         <option>1</option>
         <option>2</option>
@@ -36,24 +53,37 @@
         <option>5</option>
       </select>
     </div>
-  </div>
-  <div class="col-md-2">
-    <select class="form-control">
-      <option>1</option>
-      <option>2</option>
-      <option>3</option>
-      <option>4</option>
-      <option>5</option>
-    </select>
+
   </div>
 
-</div>
+  <div class="lineGap"></div>
+  <ul class="list-group">
+    <li class="list-group-item">Cras justo odio</li>
+    <li class="list-group-item">Dapibus ac facilisis in</li>
+    <li class="list-group-item">Morbi leo risus</li>
+    <li class="list-group-item">Porta ac consectetur ac</li>
+    <li class="list-group-item">Vestibulum at eros</li>
+  </ul>
 
-<div class="lineGap"></div>
-<ul class="list-group">
-  <li class="list-group-item">Cras justo odio</li>
-  <li class="list-group-item">Dapibus ac facilisis in</li>
-  <li class="list-group-item">Morbi leo risus</li>
-  <li class="list-group-item">Porta ac consectetur ac</li>
-  <li class="list-group-item">Vestibulum at eros</li>
-</ul>
+  <div class="row" id="exSelects">
+    <div>
+      <div class="fileinput fileinput-new" data-provides="fileinput">
+        <label>Image uploader</label>
+        <div class="fileinput-new thumbnail">
+          <img data-src="" src="../images/icon_add_image.png" style="max-width: 200px; max-height: 150px;" class="img-responsive">
+        </div>
+        <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;"></div>
+        <div>
+          <span class="btn btn-default btn-file">
+            <span class="fileinput-new">Select image...</span>
+            <span class="fileinput-exists">Change</span>
+            <input type="file" name="...">
+          </span>
+          <a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a>
+        </div>
+      </div>
+    </div><!--/col-->
+    <!--end file and image upload-->      
+  </div><!--/row-->    
+</div><!--/container-->
+

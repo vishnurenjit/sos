@@ -36,7 +36,7 @@ angular
       });
   })
   .run(function ($rootScope, $location) {
-        Parse.initialize("A4VBT8ndl6GNO7zoppzkPCpmoLD5H9ynUWaLP6u4", "mD4mC5JKpOjPVnTF7DV9b8LXM2pzebzzBdvpNp5i");
+        Parse.initialize('A4VBT8ndl6GNO7zoppzkPCpmoLD5H9ynUWaLP6u4', 'mD4mC5JKpOjPVnTF7DV9b8LXM2pzebzzBdvpNp5i');
         var currentUser = Parse.User.current();
         $rootScope.user = null;
         $rootScope.isLoggedIn = false;
