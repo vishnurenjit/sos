@@ -79,6 +79,20 @@ body {
 }
 
 .lineGap {
-  margin-top: 10px;
-  margin-bottom: 10px;
+  margin-top: 29px;
+  margin-bottom: 25px;
+}
+
+.trans{
+
+  background: transparent;
+  color: #F2F2F2;
+
+  /* CSS Transition */
+  -webkit-transition: background .2s ease-in-out, border .2s ease-in-out;
+  -moz-transition: background .2s ease-in-out, border .2s ease-in-out;
+  -ms-transition: background .2s ease-in-out, border .2s ease-in-out;
+  -o-transition: background .2s ease-in-out, border .2s ease-in-out;
+  transition: background .2s ease-in-out, border .2s ease-in-out;
+
 }
