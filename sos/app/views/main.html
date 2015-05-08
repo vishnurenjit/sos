@@ -3,15 +3,18 @@
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/jasny-bootstrap/3.1.3/css/jasny-bootstrap.min.css" />
 <!-- Styles end -->
 
-<div class="header">
-  <ul class="nav nav-pills pull-right">
-    <li class="active"><a ng-href="#">Home</a></li>
-    <li><a ng-href="#/about">About</a></li>
-    <li><a ng-href="#" ng-click="logout()">Logout</a></li>
-  </ul>
-</div>
+  <div class="header">
+    <ul class="nav nav-pills pull-right">
+      <li><a ng-href=""><i class="glyphicon glyphicon-envelope"></i></a></li>
+      <li><a ng-href=""><i class="glyphicon glyphicon-bell"></i></a></li>
+      <li  class="active"><a ng-href=""><i class="glyphicon glyphicon-user"></i></a></li>
+      <li><a ng-href="" ng-click="logout()"><i class="glyphicon glyphicon-off"></i></a></li>
+    </ul>
+    <h3>SOS</h3>
+  </div>
 
 <div class="container" ng-controller="MainCtrl">
+
   <div class="row">
     <div class="col-md-4">
       <button class="btn btn-default" type="submit" ng-click="loadModal()">Add user</button>
@@ -19,9 +22,9 @@
     </div>
     <div class="col-md-3">
       <div class="col-md-4">
-        <strong>Sort By :</strong>
+        <strong>Sort By:</strong>
       </div>  
-      <div class="col-md-6">
+      <div class="col-md-8">
         <select class="form-control">
           <option>User</option>
           <option>Organization</option>
@@ -31,10 +34,10 @@
       </div>
     </div>
     <div class="col-md-3">
-      <div class="col-md-3">
-        <strong>Filter : </strong>
+      <div class="col-md-4">
+        <strong>Filter:</strong>
       </div>  
-      <div class="col-md-9">
+      <div class="col-md-8">
         <select class="form-control">
           <option>1</option>
           <option>2</option>
@@ -53,34 +56,35 @@
   </div>
 
   <div class="lineGap"></div>
+  <strong><h3>User List</h3></strong>
   <ul class="list-group">
-    <li class="list-group-item">Cras justo odio</li>
-    <li class="list-group-item">Dapibus ac facilisis in</li>
-    <li class="list-group-item">Morbi leo risus</li>
-    <li class="list-group-item">Porta ac consectetur ac</li>
-    <li class="list-group-item">Vestibulum at eros</li>
+    <li class="list-group-item" ng-repeat="friend in friends">
+        <div class="row">
+        <div class="col-md-1">
+          <a href="#" class="pull-left">        
+            <img alt="64x64" data-src="holder.js/64x64" class="media-object img-thumbnail" style="width: 64px; height: 64px;" src="http://placehold.it/64x64">      
+          </a>
+        </div>
+        <div class="col-md-3">
+          <div class="media-body">
+            <h3 class="media-heading"><strong><a href="#">{{friend.name}}</a></strong></h3>
+            <div class="small">{{friend.email}}</div>
+          </div>
+        </div>
+        <div class="col-md-4">
+           <p>{{friend.organisation}}</p>           
+           <h5>Role: ({{friend.role}})</h5>
+        </div>
+        <div class="col-md-3">
+          <div>Created On: 12:02:04 <span class="glyphicon glyphicon-time timestamp" title="Lundi 24 Avril 2014 à 18h25"></span> hours</div>
+          <div>Updated On: 12:02:04 <span class="glyphicon glyphicon-time timestamp" title="Lundi 24 Avril 2014 à 18h25"></span> hours</div>
+        </div>
+        <div class="col-md-1">
+          <span class="radio"><label><input type="radio" name="optradio">Active</label></span>
+        </div>
+      </div> 
+    </li>
   </ul>
-
-  <div class="row" id="exSelects">
-    <div>
-      <div class="fileinput fileinput-new" data-provides="fileinput">
-        <label>Image uploader</label>
-        <div class="fileinput-new thumbnail">
-          <img data-src="" src="../images/icon_add_image.png" style="max-width: 200px; max-height: 150px;" class="img-responsive">
-        </div>
-        <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;"></div>
-        <div>
-          <span class="btn btn-default btn-file">
-            <span class="fileinput-new">Select image...</span>
-            <span class="fileinput-exists">Change</span>
-            <input type="file" name="...">
-          </span>
-          <a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a>
-        </div>
-      </div>
-    </div><!--/col-->
-    <!--end file and image upload-->      
-  </div><!--/row-->    
 </div><!--/container-->
 
 <!-- Modal -->
@@ -94,10 +98,34 @@
       <div class="modal-body">
         <div class="container-fluid">
           <div class="row">
-            <div class="col-xs-4">
-              <div class="row"><div class="thumbnail">
-                <img style="width:100px; height:100px; " />
-              </div></div>
+            <div class="col-xs-4"> 
+              <div class="row" id="exSelects">
+                <div>
+                  <div class="fileinput fileinput-new" data-provides="fileinput">
+                    <!-- Browse and upload an image -->
+                    <div class="fileinput-new thumbnail" style="position:relative;">
+                      <img data-src="" src="../images/icon_add_image.png" style="max-width: 200px; max-height: 150px;" class="img-responsive">
+                      <span class="btn btn-default btn-file" style="position:absolute;bottom:0;right:0;">
+                        <span class="fileinput-new glyphicon glyphicon-pencil"></span>
+                        <input type="file" name="...">
+                      </span>
+                    </div>
+                    <!-- Preview selected image -->
+                    <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;"></div>
+                    <!-- Edit or Remove image buttons -->
+                    <div class="fileinput-exists">
+                      <span class="btn btn-default btn-file">
+                        <span class="fileinput-exists glyphicon glyphicon-pencil"></span>
+                        <input type="file" name="...">
+                      </span>
+                      <a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput">
+                        <span class="glyphicon glyphicon-trash"></span>
+                      </a>
+                    </div>
+                  </div>
+                </div><!--/col-->
+                <!--end file and image upload-->      
+              </div><!--/row-->   
               <div class="row">
                 <div class="switch-toggle well">
                   <input id="user" name="view" type="radio" checked>
@@ -137,7 +165,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-primary" ng-click="saveUser()">Save changes</button>
       </div>
     </div>
   </div>

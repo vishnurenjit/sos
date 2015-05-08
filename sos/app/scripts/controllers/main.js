@@ -24,9 +24,7 @@ angular.module('sos00App').controller('MainCtrl', function ($scope, $location) {
       
       $('#mySel2').select2({
         closeOnSelect:false
-      });
-
-      alert($('.fileinput').fileinput().length);
+      });     
       
     });//script
     });//script
@@ -40,7 +38,36 @@ angular.module('sos00App').controller('MainCtrl', function ($scope, $location) {
       var user = $scope.user;
     }
 
+    $scope.saveUser = function() {
+      var file = $('.fileinput').fileinput();
+      console.log(file);
+    };
+
     var generatePassword = function() {
       return "pass"
     }
+
+    $scope.friends = [
+                    {
+                        id: 1,
+                        name: "Raoul Boulard",
+                        email: "Raoul.boulard@nibodha.com",
+                        organisation: "Nibodha Technologies Pvt Ltd",
+                        role: "Admin"
+                    },
+                    {
+                        id: 2,
+                        name: "Ben Nadel",
+                        email: "Ben.nadal@digitalpraetorian.com",
+                        organisation: "Digital Praetorian Inc",
+                        role: "Executive"
+                    },
+                    {
+                        id: 3,
+                        name: "Kit Johnson",
+                        email: "Kit.johnson@nibodha.com",
+                        organisation: "Nibodha Technologies Pvt Ltd",
+                        role: "User"
+                    }
+                ];
   });
