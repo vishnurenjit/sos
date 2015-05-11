@@ -58,17 +58,18 @@
                       <button class="btn dropdown-toggle" data-toggle="dropdown">Role <i class="fa fa-angle-down"></i>
                       </button>
                       <ul class="dropdown-menu pull-right">
-                          <li><a href="#">Admin</a></li>
-                          <li><a href="#">User</a></li>
+                          <!--<li ng-repeat="role in roles"><a href="">role.name</a></li>-->
+                          <li><a href="">Admin</a></li>
+                          <li><a href="">User</a></li>
                       </ul>
                   </div>
                   <div class="btn-group">
                       <button class="btn dropdown-toggle" data-toggle="dropdown">Organisation <i class="fa fa-angle-down"></i>
                       </button>
                       <ul class="dropdown-menu pull-right">
-                          <li><a href="#">Digital Praetorian Inc</a></li>
-                          <li><a href="#">Nibodha Technologies Pvt Ltd</a></li>
-                          <li><a href="#">Thoughtworks Inc</a></li>
+                          <li><a href="">Digital Praetorian Inc</a></li>
+                          <li><a href="">Nibodha Technologies Pvt Ltd</a></li>
+                          <li><a href="">Thoughtworks Inc</a></li>
                       </ul>
                   </div>
                   <div class="btn-group pull-right">
@@ -119,10 +120,10 @@
                   <div class="col-lg-6">
                     <div class="dataTables_paginate paging_bootstrap pagination">
                       <ul>
-                        <li class="prev disabled"><a href="#">← Prev</a></li>
-                        <li class="active"><a href="#">1</a></li>
-                        <li><a href="#">2</a></li><li><a href="#">3</a></li>
-                        <li class="next"><a href="#">Next → </a></li>
+                        <li class="prev disabled"><a href="">← Prev</a></li>
+                        <li class="active"><a href="">1</a></li>
+                        <li><a href="">2</a></li><li><a href="">3</a></li>
+                        <li class="next"><a href="">Next → </a></li>
                       </ul>
                     </div>
                   </div>
@@ -132,6 +133,7 @@
       </div>
      </section> <!-- panel -->
   </section> <!-- wrapper -->
+</section> <!-- main-content -->
 </section> <!--container-->
 <!-- Modal -->
 <div class="modal fade" id="addUser" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -164,13 +166,13 @@
                         <span class="fileinput-exists fa fa-pencil"></span>
                         <input type="file" name="...">
                       </span>
-                      <a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput">
+                      <a href="" class="btn btn-default fileinput-exists" data-dismiss="fileinput">
                         <i class="fa fa-trash"></i>
                       </a>
                     </div>
                   </div>
                 </div><!--/col-->
-                <!--end file and image upload-->      
+                <!--end file and image upload-->   
               </div><!--/row-->               
             </div>
             <div class="col-xs-8">
@@ -179,12 +181,15 @@
               </div>
               <div class="lineGap"></div>
               <div class="row">
-                <div class="col-xs-6"><input type="text" class="form-control" placeholder="First name"></div>
-                <div class="col-xs-6"><input type="text" class="form-control" placeholder="Last name"></div>                
+                <div class="col-xs-6"><input type="text" class="form-control" placeholder="First name" ng-model="user.firstName" ></div>
+                <div class="col-xs-6"><input type="text" class="form-control" placeholder="Last name" ng-model="user.lastName" ></div>                
               </div>
               <div class="lineGap"></div>
               <div class="row">
                 <div class="col-xs-12">
+                  <!--<select class="form-control" ng-model="user.organization">
+                    <option ng-repeat="item in orgs" value="{{item.id}}">{{item.get('Name')}}</option>
+                  </select>-->
                   <select class="form-control">
                     <option>Organization</option>
                     <option>Nibodha Technologies Pvt Ltd</option>
