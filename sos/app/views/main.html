@@ -1,92 +1,138 @@
 <!-- Styles loaded for uploading picture -->
 <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/select2/3.4.8/select2-bootstrap.css" />
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/jasny-bootstrap/3.1.3/css/jasny-bootstrap.min.css" />
+
+    <!-- Bootstrap core CSS -->
+    <link href="../styles/bootstrap.min.css" rel="stylesheet">
+    <link href="../styles/bootstrap-reset.css" rel="stylesheet">
+    <!--external css-->
+    <link href="../styles/font-awesome.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../styles/DT_bootstrap.css" />
+
+    <!-- Custom styles for this template -->
+    <link href="../styles/style.css" rel="stylesheet">
+    <link href="../styles/style-responsive.css" rel="stylesheet" />
 <!-- Styles end -->
 
-  <div class="header">
-    <ul class="nav nav-pills pull-right">
-      <li><a ng-href=""><i class="glyphicon glyphicon-envelope"></i></a></li>
-      <li><a ng-href=""><i class="glyphicon glyphicon-bell"></i></a></li>
-      <li  class="active"><a ng-href=""><i class="glyphicon glyphicon-user"></i></a></li>
-      <li><a ng-href="" ng-click="logout()"><i class="glyphicon glyphicon-off"></i></a></li>
+<section id="container">
+<div class="header white-bg" id="top_menu">
+  <div class=" top-nav">
+    <ul class="nav top-menu pull-right">
+      <li class="dropdown">
+        <a data-toggle="dropdown" class="dropdown-toggle" href="" aria-expanded="false">
+            <i class="fa fa-user"></i>
+            <span class="username">Jhon Doue</span>
+            <b class="caret"></b>
+        </a>
+        <ul class="dropdown-menu extended logout">
+            <div class="log-arrow-up"></div>
+            <li><a href=""><i class=" fa fa-suitcase"></i>Profile</a></li>
+            <li><a href=""><i class="fa fa-cog"></i> Settings</a></li>
+            <li><a href=""><i class="fa fa-bell-o"></i> Notification</a></li>
+            <li><a ng-href="" ng-click="logout()"><i class="fa fa-key"></i> Log Out</a></li>
+        </ul>
+      </li>
     </ul>
-    <h3>SOS</h3>
   </div>
+  <h3>SOS</h3>
+</div>
 
-<div class="container" ng-controller="MainCtrl">
-
-  <div class="row">
-    <div class="col-md-4">
-      <button class="btn btn-default" type="submit" ng-click="loadModal()">Add user</button>
-      <button class="btn btn-default" type="submit">Upload user list</button>
-    </div>
-    <div class="col-md-3">
-      <div class="col-md-4">
-        <strong>Sort By:</strong>
-      </div>  
-      <div class="col-md-8">
-        <select class="form-control">
-          <option>User</option>
-          <option>Organization</option>
-          <option>Created on</option>
-          <option>Updated on</option>
-        </select>
-      </div>
-    </div>
-    <div class="col-md-3">
-      <div class="col-md-4">
-        <strong>Filter:</strong>
-      </div>  
-      <div class="col-md-8">
-        <select class="form-control">
-          <option>1</option>
-          <option>2</option>
-          <option>3</option>
-          <option>4</option>
-          <option>5</option>
-        </select>
-      </div>
-    </div>
-    <div class="col-md-2">
-      <select class="form-control">
-        <option>User</option>
-      </select>
-    </div>
-
-  </div>
-
-  <div class="lineGap"></div>
-  <strong><h3>User List</h3></strong>
-  <ul class="list-group">
-    <li class="list-group-item" ng-repeat="friend in friends">
-        <div class="row">
-        <div class="col-md-1">
-          <a href="#" class="pull-left">        
-            <img alt="64x64" data-src="holder.js/64x64" class="media-object img-thumbnail" style="width: 64px; height: 64px;" src="http://placehold.it/64x64">      
-          </a>
-        </div>
-        <div class="col-md-3">
-          <div class="media-body">
-            <h3 class="media-heading"><strong><a href="#">{{friend.name}}</a></strong></h3>
-            <div class="small">{{friend.email}}</div>
+<section id="main-content">
+  <section class="wrapper site-min-height">
+    <!-- page start-->
+    <section class="panel" ng-controller="MainCtrl">
+      <header class="panel-heading">
+          <div class="clearfix">
+                  <div class="btn-group btn-xs">
+                      <button id="editable-sample_new" class="btn green" ng-click="loadModal()">
+                          Add User <i class="fa fa-user-plus"></i>
+                      </button>
+                  </div>
+                  <div class="btn-group">
+                      <button class="btn greent btn-file">
+                        Upload Userlist <i class="fa fa-upload"></i>
+                        <input type="file" name="...">
+                      </button>
+                  </div>
+                  <div class="btn-group">
+                      <button class="btn dropdown-toggle" data-toggle="dropdown">Role <i class="fa fa-angle-down"></i>
+                      </button>
+                      <ul class="dropdown-menu pull-right">
+                          <li><a href="#">Admin</a></li>
+                          <li><a href="#">User</a></li>
+                      </ul>
+                  </div>
+                  <div class="btn-group">
+                      <button class="btn dropdown-toggle" data-toggle="dropdown">Organisation <i class="fa fa-angle-down"></i>
+                      </button>
+                      <ul class="dropdown-menu pull-right">
+                          <li><a href="#">Digital Praetorian Inc</a></li>
+                          <li><a href="#">Nibodha Technologies Pvt Ltd</a></li>
+                          <li><a href="#">Thoughtworks Inc</a></li>
+                      </ul>
+                  </div>
+                  <div class="btn-group pull-right">
+                      <input type="text" class="form-control" placeholder="Search" id="txtSearch"/>
+                  </div>
+              </div>
+      </header>
+      <div class="panel-body">
+          <div class="adv-table editable-table ">                          
+              <div class="space15"></div>
+              <div id="editable-sample_wrapper" class="dataTables_wrapper form-inline" role="grid">
+                <table class="table table-striped table-hover" id="editable-sample">
+                    <thead>
+                    <tr>
+                        <th>Full Name</th>
+                        <th>Email</th>
+                        <th>Organisation</th>
+                        <th>Role</th>
+                        <th>Active</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr class="" ng-repeat="friend in friends">
+                        <td>{{friend.name}}</td>
+                        <td>{{friend.email}}</td>
+                        <td>{{friend.organisation}}</td>
+                        <td>{{friend.role}}</td>
+                        <td class="center">
+                          <div class="switch-toggle well" style="margin:0px;">
+                            <input id="active_yes" name="view" type="radio" style="width:10px;">
+                            <label for="Yes" onclick="" style="width:10px;">Yes</label>
+                            <input id="active_no" name="view" type="radio" style="width:10px;">
+                            <label for="No" onclick="" style="width:10px;">No</label>
+                            <a class="btn btn-primary"></a>
+                          </div>
+                        </td>
+                        <td><a class="edit" href="javascript:;">Edit</a></td>
+                        <td><a class="delete" href="javascript:;">Delete</a></td>
+                    </tr>
+                    </tbody>
+                </table>
+                <div class="row">
+                  <div class="col-lg-6">
+                    <div class="dataTables_info" id="editable-sample_info">Showing 1 to 7 of 7 entries</div>
+                  </div>
+                  <div class="col-lg-6">
+                    <div class="dataTables_paginate paging_bootstrap pagination">
+                      <ul>
+                        <li class="prev disabled"><a href="#">← Prev</a></li>
+                        <li class="active"><a href="#">1</a></li>
+                        <li><a href="#">2</a></li><li><a href="#">3</a></li>
+                        <li class="next"><a href="#">Next → </a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
           </div>
-        </div>
-        <div class="col-md-4">
-           <p>{{friend.organisation}}</p>           
-           <h5>Role: ({{friend.role}})</h5>
-        </div>
-        <div class="col-md-3">
-          <div>Created On: 12:02:04 <span class="glyphicon glyphicon-time timestamp" title="Lundi 24 Avril 2014 à 18h25"></span> hours</div>
-          <div>Updated On: 12:02:04 <span class="glyphicon glyphicon-time timestamp" title="Lundi 24 Avril 2014 à 18h25"></span> hours</div>
-        </div>
-        <div class="col-md-1">
-          <span class="radio"><label><input type="radio" name="optradio">Active</label></span>
-        </div>
-      </div> 
-    </li>
-  </ul>
-</div><!--/container-->
-
+      </div>
+     </section> <!-- panel -->
+  </section> <!-- wrapper -->
+</section> <!--container-->
 <!-- Modal -->
 <div class="modal fade" id="addUser" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
@@ -105,8 +151,8 @@
                     <!-- Browse and upload an image -->
                     <div class="fileinput-new thumbnail" style="position:relative;">
                       <img data-src="" src="../images/icon_add_image.png" style="max-width: 200px; max-height: 150px;" class="img-responsive">
-                      <span class="btn btn-default btn-file" style="position:absolute;bottom:0;right:0;">
-                        <span class="fileinput-new glyphicon glyphicon-pencil"></span>
+                      <span class="btn btn-default btn-file" style="position:absolute;bottom:3px;right:3px;">
+                        <span class="fileinput-new fa fa-pencil"></span>
                         <input type="file" name="...">
                       </span>
                     </div>
@@ -115,33 +161,21 @@
                     <!-- Edit or Remove image buttons -->
                     <div class="fileinput-exists">
                       <span class="btn btn-default btn-file">
-                        <span class="fileinput-exists glyphicon glyphicon-pencil"></span>
+                        <span class="fileinput-exists fa fa-pencil"></span>
                         <input type="file" name="...">
                       </span>
                       <a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput">
-                        <span class="glyphicon glyphicon-trash"></span>
+                        <i class="fa fa-trash"></i>
                       </a>
                     </div>
                   </div>
                 </div><!--/col-->
                 <!--end file and image upload-->      
-              </div><!--/row-->   
-              <div class="row">
-                <div class="switch-toggle well">
-                  <input id="user" name="view" type="radio" checked>
-                  <label for="user" onclick="">User</label>
-                  <input id="admin" name="view" type="radio">
-                  <label for="admin" onclick="">Admin</label>
-                  <a class="btn btn-primary"></a>
-                </div>
-
-                <input type="hidden" id="role" />
-              </div>
-              
+              </div><!--/row-->               
             </div>
             <div class="col-xs-8">
               <div class="row">
-                <div class="container-fluid"><input type="text" class="form-control" placeholder="User name"></div>
+                <div class="container-fluid"><input type="text" class="form-control" placeholder="Email"></div>
               </div>
               <div class="lineGap"></div>
               <div class="row">
@@ -153,11 +187,21 @@
                 <div class="col-xs-12">
                   <select class="form-control">
                     <option>Organization</option>
-                    <option>Organization 1</option>
-                    <option>Organization 2</option>
-                    <option>Organization 3</option>
+                    <option>Nibodha Technologies Pvt Ltd</option>
+                    <option>Digital Praetorian Inc</option>
                   </select>
                 </div>              
+              </div>
+              <div class="lineGap"></div>  
+              <div class="row">
+                <div class="switch-toggle well">
+                  <input id="user" name="view" type="radio" checked>
+                  <label for="user" onclick="">User</label>
+                  <input id="admin" name="view" type="radio">
+                  <label for="admin" onclick="">Admin</label>
+                  <a class="btn btn-primary"></a>
+                </div>
+                <input type="hidden" id="role" />
               </div>
             </div>
           </div>
@@ -165,8 +209,9 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" ng-click="saveUser()">Save changes</button>
+        <button type="button" class="btn btn-primary" ng-click="saveUser()">Save</button>
       </div>
     </div>
   </div>
+</div>
 </div>
